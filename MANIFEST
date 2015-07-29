@@ -1,0 +1,8 @@
+Changes
+Makefile.PL
+MANIFEST
+ppport.h
+README
+XS.xs
+t/Net-Fix-Checksum-XS.t
+lib/Net/Fix/Checksum/XS.pm
