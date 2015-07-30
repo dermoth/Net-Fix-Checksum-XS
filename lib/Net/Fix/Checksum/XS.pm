@@ -25,7 +25,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw();
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 require XSLoader;
 XSLoader::load('Net::Fix::Checksum::XS', $VERSION);
@@ -81,6 +81,8 @@ are performed.
 
 =head2 replace_checksum
 
+  my $newmsg = replace_checksum($fixmsg);
+
 Append/replace a checksum to a C<SOH>-delimited fix message. Any existing
 checksum field is ignored and replaced.
 
@@ -88,6 +90,8 @@ Returns C<undef> if the message does not end with a C<SOH> or if the message exc
 the maximum allowed length (see L</BUGS> for more info).
 
 =head2 validate_checksum
+
+  my $result = validate_checksum($fixmsg);
 
 Validate checksum of given message. Return C<1> if checksum is present and
 valid, and C<0> if the checksum is invalid.
@@ -108,9 +112,6 @@ implement once we get past XS glue; I just never looked into it.
 
 The code repository is mirrored on
 L<https://github.com/dermoth/Net-Fix-Checksum-XS>
-
-No other known FIX parsing/processing modules; contact me if you publish one
-and would like it referenced here.
 
 =head1 AUTHOR
 
